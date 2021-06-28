@@ -41,17 +41,17 @@ if option1 == "y":
         print(i)
     print(contras)
     zf = input("Please enter the path of the zip file: ")
-    go = input("Pleas enter the path to unzip files: ")
+    go = input("Please enter the path to unzip files: ")
     i = 1
     e = 0
     archivo=(zf)
-    # comprobamos si existe, y si es un archivo comprimido
+    # check if file exists
     if zipfile.is_zipfile(archivo):
-        # leemos todos los archivos del disco comprimido
+        # read files
         zf=zipfile.ZipFile(archivo,"r")
         for zfile in zf.filelist:
             print(zfile.filename, " size:", zfile.file_size, "B"," compresed:", zfile.compress_size, "B")
-        # extraemos todos los archivos
+        # extract files
         while(i != len(contras)):
             pswd = contras[e]
             password=((pswd.encode()))
@@ -61,7 +61,6 @@ if option1 == "y":
             print("Unzipping...")
             zf.extractall(path=rutaExtract,pwd=password)
             print("FINISHED")
-
             print("Error")
             i = i + 1
 elif option1 == "n":
